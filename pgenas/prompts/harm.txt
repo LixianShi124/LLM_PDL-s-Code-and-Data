@@ -1,0 +1,123 @@
+Module 1: Role Setup & Resource Constraints
+
+You are an expert neural architecture designer specializing in physics-informed and resource-efficient neural networks for power quality analysis.
+
+Task:
+Design a lightweight PyTorch neural network for harmonic disturbance identification.
+
+Target classes:
+0: Non-harmonic disturbance
+1: Harmonic disturbance
+
+Hard constraints:
+- Total trainable parameters must not exceed 50,000.
+- Network FLOPs for one input sample must not exceed 50 million.
+- Resource feasibility will be verified externally.
+
+Optimization objectives:
+- Improve validation classification accuracy.
+- Reduce computational cost measured by network FLOPs.
+- Support Pareto-based accuracy-efficiency optimization.
+
+Module 2: Physics-Informed Prior
+
+The harmonic branch receives a 604-dimensional feature vector.
+
+Feature organization:
+- Dimensions 1–600: FFT-based spectral amplitude features.
+- Dimension 601: Total harmonic distortion (THD).
+- Dimension 602: Third harmonic ratio (HR3).
+- Dimension 603: Fifth harmonic ratio (HR5).
+- Dimension 604: Seventh harmonic ratio (HR7).
+
+The input therefore consists of 600 spectral components and four expert-defined statistical indicators.
+
+Mandatory architectural constraint:
+
+The four expert-defined statistical indicators must bypass all deep convolutional layers.
+
+The architecture must:
+- Extract learned representations from the 600-dimensional spectral component.
+- Preserve the four expert-defined indicators through a separate pathway.
+- Concatenate the expert indicators with the learned spectral features before the final classification head.
+
+Do not mix the expert indicators into the convolutional spectral input.
+
+Module 3: Resource-Aware Operator Guidance
+
+For the spectral pathway, prefer efficient operators such as:
+- Compact 1D convolutions with weight sharing.
+- Depthwise separable convolutions.
+- Lightweight bottleneck blocks.
+- Adaptive pooling.
+- Small MLP structures when appropriate.
+
+Avoid:
+- Large dense layers applied directly to flattened high-dimensional convolutional features.
+- Excessive channel expansion.
+- Unnecessary computational operations that increase FLOPs without improving feature extraction.
+
+For the expert-feature pathway:
+- Preserve all four statistical indicators.
+- Use a direct bypass or lightweight transformation.
+- Ensure that the expert pathway is integrated into the final classification stage.
+
+Module 4: Pareto-Guided Evolutionary Directive
+
+Current search mode:
+{{SEARCH_MODE}}
+
+If EXPLORATION:
+- Explore efficient changes in the spectral feature extractor.
+- Consider variations in network depth, convolutional kernels, channel widths, and pooling strategies.
+- Introduce new lightweight feature extraction structures when useful.
+- Preserve the mandatory expert-feature bypass pathway.
+
+If EXPLOITATION:
+- Refine the selected parent architecture.
+- Adjust channel dimensions, bottleneck ratios, activation functions, or lightweight operators.
+- Improve the accuracy-FLOPs trade-off.
+- Preserve the expert-feature bypass and final feature concatenation.
+
+Module 5: Parent Inheritance & Evaluation Feedback
+
+Selected parent architecture:
+{{PARENT_ARCHITECTURE}}
+
+Parent evaluation information:
+{{PARENT_METRICS}}
+
+Pareto search context:
+{{PARETO_CONTEXT}}
+
+Historical errors and resource violations:
+{{MEMORY_BANK}}
+
+Instructions:
+- Use the externally selected parent for architecture evolution.
+- Preserve the physical constraints of the harmonic branch.
+- Correct known tensor-shape and interface errors.
+- Avoid previously rejected architectural patterns when the feedback identifies their causes.
+- If no parent is available, construct a valid architecture from scratch.
+- Do not fabricate validation accuracy, parameter counts, or FLOPs.
+
+Module 6: Standardized Output Interface
+
+Generate one complete and executable PyTorch network.
+
+Required network class: HarmNet
+
+The network must:
+- Accept a 604-dimensional input feature vector.
+- Separate the first 600 spectral features from the final four statistical indicators.
+- Process the spectral features through a learnable feature extraction pathway.
+- Bypass the four statistical indicators around all deep convolutional layers.
+- Concatenate spectral and expert features before classification.
+- Produce logits with shape [batch_size, 2].
+- Produce learned features with shape [batch_size, feature_dim].
+- Return (logits, features).
+- Avoid applying Softmax to output logits.
+
+Return only complete Python code with required imports.
+
+Do not include explanations, Markdown formatting, training loops, or evaluation code.

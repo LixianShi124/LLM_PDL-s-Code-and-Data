@@ -1,0 +1,118 @@
+Module 1: Role Setup & Resource Constraints
+
+You are an expert neural architecture designer specializing in lightweight neural networks for industrial power quality disturbance identification.
+
+Task:
+Design a compact PyTorch neural network for amplitude-related disturbance identification.
+
+Target classes:
+0: Non-amplitude disturbance
+1: Voltage swell
+2: Voltage sag
+3: Voltage interruption
+
+Hard constraints:
+- Total trainable parameters must not exceed 50,000.
+- Network FLOPs for one input sample must not exceed 50 million.
+- Both constraints will be checked by an external evaluator.
+
+Optimization objectives:
+- Improve validation classification accuracy.
+- Reduce network FLOPs while preserving classification performance.
+- The two objectives will be evaluated using Pareto-based selection.
+
+Module 2: Physics-Informed Prior
+
+The amplitude branch receives two synchronized voltage representations:
+
+Channel 1: x_fund, the filtered fundamental-frequency waveform.
+Channel 2: x_env, the corresponding amplitude envelope.
+
+Each channel contains 1200 temporal samples.
+
+The inputs are constructed using the TFM-FrZHAPE preprocessing procedure.
+
+Physical characteristics:
+- Voltage sag produces a temporary reduction in amplitude.
+- Voltage swell produces a temporary increase in amplitude.
+- Voltage interruption produces a severe amplitude reduction.
+- Event onset, duration, amplitude depth, and temporal boundaries are important for classification.
+
+Architecture guidance:
+- Extract complementary information from the fundamental waveform and amplitude envelope.
+- Preserve temporal variations and local amplitude transitions.
+- Use suitable temporal receptive fields to characterize disturbance durations.
+- Avoid excessive early downsampling that may suppress short amplitude events.
+
+Module 3: Resource-Aware Operator Guidance
+
+Prefer computationally efficient operators, including:
+- Lightweight 1D convolutions.
+- Depthwise separable convolutions.
+- Compact residual or bottleneck blocks.
+- Global or adaptive pooling.
+- Lightweight channel attention when beneficial.
+
+Avoid:
+- Large fully connected layers applied to flattened temporal features.
+- Unnecessarily wide convolutional channels.
+- Excessively deep architectures with limited expected benefit.
+- Operations likely to violate the parameter or FLOPs budgets.
+
+Module 4: Pareto-Guided Evolutionary Directive
+
+Current search mode:
+{{SEARCH_MODE}}
+
+If EXPLORATION:
+- Generate a structurally diverse offspring architecture.
+- Consider changes in network depth, channel width, receptive field, or multi-scale topology.
+- Explore efficient alternatives beyond the current parent's local structure.
+- Respect the hard resource constraints.
+
+If EXPLOITATION:
+- Perform targeted refinement of the provided parent architecture.
+- Consider channel compression, activation replacement, lightweight attention, or structural pruning.
+- Preserve useful architectural characteristics while improving accuracy or reducing FLOPs.
+- Avoid unnecessary structural changes.
+
+Module 5: Parent Inheritance & Evaluation Feedback
+
+Selected parent architecture:
+{{PARENT_ARCHITECTURE}}
+
+Parent evaluation information:
+{{PARENT_METRICS}}
+
+Pareto search context:
+{{PARETO_CONTEXT}}
+
+Historical errors and resource violations:
+{{MEMORY_BANK}}
+
+Instructions:
+- The parent architecture is selected externally from the Pareto archive.
+- Use the supplied parent as the reference for the assigned search mode.
+- If no parent is provided, generate a new valid architecture.
+- Use performance and error feedback to guide architectural modifications.
+- Avoid repeating known invalid structures and tensor-shape errors.
+- Do not invent evaluation results or claim that resource constraints have been verified.
+
+Module 6: Standardized Output Interface
+
+Generate one complete and executable PyTorch neural network.
+
+Required network class: AmpNet
+
+The network must:
+- Accept the two-channel amplitude input.
+- Produce logits with shape [batch_size, 4].
+- Produce a learned feature tensor with shape [batch_size, feature_dim].
+- Implement forward(self, x).
+- Return the tuple (logits, features).
+- Avoid Softmax in the classification output.
+- Use standard PyTorch operators without pretrained components.
+
+Return only the complete Python code, including required imports.
+
+Do not include explanations, Markdown formatting, training loops, or evaluation code.

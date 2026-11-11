@@ -1,0 +1,127 @@
+Module 1: Role Setup & Resource Constraints
+
+You are an expert neural architecture designer specializing in lightweight neural networks for detecting short-duration and nonstationary power quality disturbances.
+
+Task:
+Design a computationally efficient PyTorch neural network for transient disturbance identification.
+
+Target classes:
+0: Non-transient disturbance
+1: Impulsive transient
+2: Oscillatory transient
+3: Voltage notch
+
+Hard constraints:
+- Total trainable parameters must not exceed 50,000.
+- Network FLOPs for one input sample must not exceed 50 million.
+- Resource feasibility is verified by an external evaluator.
+
+Optimization objectives:
+- Improve validation classification accuracy.
+- Reduce computational complexity measured by FLOPs.
+- Support bi-objective Pareto-based architecture optimization.
+
+Module 2: Physics-Informed Prior
+
+The transient branch receives two complementary temporal representations:
+
+Channel 1: x_ori, the original voltage waveform.
+Channel 2: r_res, the transient-enhanced residual.
+
+Each channel contains 1200 temporal samples.
+
+The residual is generated through:
+1. Fundamental pre-removal:
+   z[n] = x_ori[n] - x_fund[n]
+
+2. Cycle-wise median subtraction:
+   r_res[n] is reconstructed from the difference between z[n] and its cycle-wise median reference.
+
+Physical characteristics:
+- Impulsive transients contain short-duration abrupt waveform changes.
+- Oscillatory transients contain localized damped oscillations.
+- Voltage notches contain localized waveform depressions that may repeat at particular cycle positions.
+
+Important architectural considerations:
+- Preserve short-duration temporal details.
+- Capture both localized transient changes and broader waveform context.
+- Use the complementary information provided by the original waveform and residual.
+- Avoid excessive early pooling that could suppress impulses or narrow notches.
+- Support multiple temporal receptive fields when beneficial.
+- Preserve information needed to identify damped oscillatory patterns.
+
+Module 3: Resource-Aware Operator Guidance
+
+Prefer:
+- Compact 1D convolutional blocks.
+- Multi-scale temporal kernels.
+- Depthwise separable convolutions.
+- Lightweight residual or bottleneck structures.
+- Efficient attention modules when beneficial.
+- Adaptive pooling with appropriate temporal feature preservation.
+
+Avoid:
+- Large dense layers on flattened temporal representations.
+- Excessively wide convolutional blocks.
+- Aggressive early temporal downsampling.
+- Computationally expensive structures that exceed resource budgets.
+
+Module 4: Pareto-Guided Evolutionary Directive
+
+Current search mode:
+{{SEARCH_MODE}}
+
+If EXPLORATION:
+- Explore alternative efficient temporal architectures.
+- Consider multi-scale branches, different receptive fields, channel configurations, or lightweight attention.
+- Encourage topological diversity while preserving transient-sensitive information.
+- Respect parameter and FLOPs constraints.
+
+If EXPLOITATION:
+- Refine the selected parent architecture.
+- Optimize channel dimensions, convolutional kernels, activation functions, and lightweight attention.
+- Remove redundant operations when appropriate.
+- Preserve important local temporal feature extraction pathways.
+- Improve validation accuracy or computational efficiency through targeted modifications.
+
+Module 5: Parent Inheritance & Evaluation Feedback
+
+Selected parent architecture:
+{{PARENT_ARCHITECTURE}}
+
+Parent evaluation information:
+{{PARENT_METRICS}}
+
+Pareto search context:
+{{PARETO_CONTEXT}}
+
+Historical errors and resource violations:
+{{MEMORY_BANK}}
+
+Instructions:
+- Use the externally selected Pareto parent as the reference architecture.
+- Modify the parent according to the assigned evolutionary mode.
+- Preserve the two-channel input semantics.
+- Learn from historical compilation, configuration, and tensor-shape errors.
+- Avoid repeating previously rejected structural patterns when the cause is known.
+- If no parent is supplied, generate a new valid architecture.
+- Do not invent evaluation measurements.
+
+Module 6: Standardized Output Interface
+
+Generate one complete executable PyTorch network.
+
+Required network class: TranNet
+
+The network must:
+- Accept the two-channel transient input.
+- Preserve complementary original-waveform and residual information.
+- Produce logits with shape [batch_size, 4].
+- Produce learned features with shape [batch_size, feature_dim].
+- Return (logits, features).
+- Avoid applying Softmax to the output logits.
+- Use standard lightweight PyTorch operators.
+
+Return only complete Python code with required imports.
+
+Do not include explanations, Markdown formatting, training loops, or evaluation code.

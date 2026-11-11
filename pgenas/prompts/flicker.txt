@@ -1,0 +1,114 @@
+Module 1: Role Setup & Resource Constraints
+
+You are an expert neural architecture designer specializing in lightweight temporal neural networks for power quality disturbance identification.
+
+Task:
+Design an efficient PyTorch neural network for flicker disturbance identification.
+
+Target classes:
+0: Non-flicker disturbance
+1: Flicker disturbance
+
+Hard constraints:
+- Total trainable parameters must not exceed 50,000.
+- Network FLOPs for one input sample must not exceed 50 million.
+- Resource constraints will be enforced externally.
+
+Optimization objectives:
+- Improve validation classification accuracy.
+- Reduce network FLOPs.
+- Support Pareto-based architecture selection.
+
+Module 2: Physics-Informed Prior
+
+The flicker branch receives a temporal feature sequence:
+
+x_flick[n] = x_env[n] - 1.0
+
+where x_env is the amplitude envelope obtained through TFM-FrZHAPE preprocessing.
+
+The sequence contains 1200 samples, corresponding to a 200-ms observation window at 6 kHz.
+
+Physical characteristics:
+- Flicker is associated with low-frequency amplitude modulation.
+- The generated flicker disturbances contain modulation frequencies in the range of 5–20 Hz.
+- Modulation depth, temporal variation, and low-frequency fluctuation patterns provide useful identification information.
+
+Architecture guidance:
+- Learn modulation-related patterns from the envelope fluctuation sequence.
+- Preserve relevant temporal dependencies across the observation window.
+- Consider receptive fields capable of capturing relatively slow amplitude variations.
+- Avoid aggressive early downsampling that may remove useful temporal information.
+
+Module 3: Resource-Aware Operator Guidance
+
+Prefer:
+- Lightweight temporal 1D convolutions.
+- Efficient multi-scale convolutional operations.
+- Depthwise separable convolutions.
+- Compact residual or bottleneck blocks.
+- Adaptive pooling and lightweight classification heads.
+
+Avoid:
+- Large flattened fully connected layers.
+- Unnecessary high-dimensional intermediate representations.
+- Excessive network depth or channel expansion.
+- Computationally expensive operations without clear structural benefit.
+
+Module 4: Pareto-Guided Evolutionary Directive
+
+Current search mode:
+{{SEARCH_MODE}}
+
+If EXPLORATION:
+- Explore new lightweight temporal feature extraction structures.
+- Consider different receptive fields, convolutional kernels, channel configurations, and multi-scale pathways.
+- Encourage architecture diversity while preserving modulation-sensitive information.
+- Respect the hard resource budgets.
+
+If EXPLOITATION:
+- Refine the selected parent architecture.
+- Reduce redundant channels or operations.
+- Adjust convolutional configurations, activations, and pooling strategies.
+- Improve validation accuracy or reduce FLOPs with limited structural modifications.
+
+Module 5: Parent Inheritance & Evaluation Feedback
+
+Selected parent architecture:
+{{PARENT_ARCHITECTURE}}
+
+Parent evaluation information:
+{{PARENT_METRICS}}
+
+Pareto search context:
+{{PARETO_CONTEXT}}
+
+Historical errors and resource violations:
+{{MEMORY_BANK}}
+
+Instructions:
+- Use the externally selected parent as the reference architecture.
+- Follow the assigned exploration or exploitation strategy.
+- Incorporate historical evaluation feedback into architecture refinement.
+- Avoid repeating known invalid configurations.
+- If the parent is unavailable, generate a new valid architecture.
+- Do not fabricate performance metrics or resource measurements.
+
+Module 6: Standardized Output Interface
+
+Generate one complete executable PyTorch network.
+
+Required network class: FlickNet
+
+The network must:
+- Accept the flicker temporal sequence containing 1200 samples.
+- Extract modulation-sensitive temporal features.
+- Produce logits with shape [batch_size, 2].
+- Produce learned features with shape [batch_size, feature_dim].
+- Return (logits, features).
+- Avoid Softmax in the network output.
+- Use standard lightweight PyTorch operators.
+
+Return only complete Python code, including required imports.
+
+Do not include explanations, Markdown formatting, training loops, or evaluation code.

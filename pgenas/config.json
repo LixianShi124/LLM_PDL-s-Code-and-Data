@@ -1,0 +1,49 @@
+{
+  "branches": [
+    "amp",
+    "harm",
+    "flicker",
+    "tran"
+  ],
+  "seed": 42,
+  "generations": 10,
+  "population": 3,
+  "archive_capacity": 10,
+  "epochs": 5,
+  "batch_size": 128,
+  "learning_rate": 0.001,
+  "device": "cuda",
+  "threads": 2,
+  "candidate_timeout": 1800,
+  "max_api_calls": 120,
+  "api_timeout": 90,
+  "api_max_tokens": 5000,
+  "temperature": 0.7,
+  "transient_preprocessing": "fundamental_first",
+  "budgets": {
+    "amp": {
+      "max_params": 50000,
+      "deploy_params": 50000,
+      "max_flops": 50000000,
+      "deploy_flops": 50000000
+    },
+    "harm": {
+      "max_params": 50000,
+      "deploy_params": 50000,
+      "max_flops": 50000000,
+      "deploy_flops": 50000000
+    },
+    "flicker": {
+      "max_params": 50000,
+      "deploy_params": 50000,
+      "max_flops": 50000000,
+      "deploy_flops": 50000000
+    },
+    "tran": {
+      "max_params": 50000,
+      "deploy_params": 50000,
+      "max_flops": 50000000,
+      "deploy_flops": 50000000
+    }
+  }
+}
