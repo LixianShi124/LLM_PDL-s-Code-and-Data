@@ -1,1 +1,1 @@
-Owing to the massive size of the full dataset, only 10% of the generated data is currently available for download.
+This repository contains the official source code and dataset for the paper: "Large Language Model-Assisted Physics-Decoupled Learning for Unseen-Combination Compound Power Quality Disturbance Identification". Owing to the massive size of the full dataset, only 10% of the generated data is currently available for download.
