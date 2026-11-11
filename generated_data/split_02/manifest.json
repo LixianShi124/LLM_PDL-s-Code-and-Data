@@ -1,0 +1,306 @@
+{
+  "split_name": "split_02",
+  "waveform_seed": 20261025,
+  "combination_split_seed": 102,
+  "roles": {
+    "train": {
+      "role": "train",
+      "source_sample_count": 14800,
+      "sample_count": 1480,
+      "combination_count": 37,
+      "samples_per_combination": 40,
+      "class_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20,
+        22,
+        24,
+        25,
+        27,
+        28,
+        30,
+        33,
+        34,
+        35,
+        36,
+        38,
+        39,
+        41,
+        45,
+        47,
+        51,
+        52,
+        53
+      ],
+      "multiplicity_counts": {
+        "0": 40,
+        "1": 320,
+        "2": 640,
+        "3": 480
+      },
+      "positive_label_counts": {
+        "swell": 360,
+        "sag": 320,
+        "harmonic": 560,
+        "flicker": 560,
+        "interruption": 360,
+        "impulsive": 280,
+        "oscillatory": 320,
+        "notch": 280
+      },
+      "source_npz": {
+        "path": "split_02/train_clean.npz",
+        "bytes": 32661836,
+        "sha256": "59399b92f8490a9382f7eba2a7f512ceb2e4f7f100e19de29ff8cc6c6b8c940c"
+      },
+      "files": {
+        "train_clean.npz": {
+          "bytes": 3274781,
+          "sha256": "cd5f7d9289386626c2c43db4c66ec6d3f2c6b748d108c070a7cf134ba3aef4b8"
+        },
+        "train_metadata.jsonl": {
+          "bytes": 1599445,
+          "sha256": "e761a1025f114f6abf8e4a6a019b309d9b1ad1dbd1604703a72eeba17a07338f"
+        }
+      }
+    },
+    "validation": {
+      "role": "validation",
+      "source_sample_count": 3700,
+      "sample_count": 370,
+      "combination_count": 37,
+      "samples_per_combination": 10,
+      "class_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20,
+        22,
+        24,
+        25,
+        27,
+        28,
+        30,
+        33,
+        34,
+        35,
+        36,
+        38,
+        39,
+        41,
+        45,
+        47,
+        51,
+        52,
+        53
+      ],
+      "multiplicity_counts": {
+        "0": 10,
+        "1": 80,
+        "2": 160,
+        "3": 120
+      },
+      "positive_label_counts": {
+        "swell": 90,
+        "sag": 80,
+        "harmonic": 140,
+        "flicker": 140,
+        "interruption": 90,
+        "impulsive": 70,
+        "oscillatory": 80,
+        "notch": 70
+      },
+      "source_npz": {
+        "path": "split_02/validation_clean.npz",
+        "bytes": 8166090,
+        "sha256": "bba83e293f6ce4deb84c4fa9144ab1d20d5e3189460bc1e43f95fbb966da840e"
+      },
+      "files": {
+        "validation_clean.npz": {
+          "bytes": 818730,
+          "sha256": "824afc72e8693da415a0632b18429980932bf23ba192fcfa531d63a27b2ba555"
+        },
+        "validation_metadata.jsonl": {
+          "bytes": 402856,
+          "sha256": "9a9eed0c147f9b85c5ad7cca63f6570d54592f523b4acff005e70382b2ccf2d2"
+        }
+      }
+    },
+    "test_seen": {
+      "role": "test_seen",
+      "source_sample_count": 18500,
+      "sample_count": 1850,
+      "combination_count": 37,
+      "samples_per_combination": 50,
+      "class_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20,
+        22,
+        24,
+        25,
+        27,
+        28,
+        30,
+        33,
+        34,
+        35,
+        36,
+        38,
+        39,
+        41,
+        45,
+        47,
+        51,
+        52,
+        53
+      ],
+      "multiplicity_counts": {
+        "0": 50,
+        "1": 400,
+        "2": 800,
+        "3": 600
+      },
+      "positive_label_counts": {
+        "swell": 450,
+        "sag": 400,
+        "harmonic": 700,
+        "flicker": 700,
+        "interruption": 450,
+        "impulsive": 350,
+        "oscillatory": 400,
+        "notch": 350
+      },
+      "source_npz": {
+        "path": "split_02/test_seen_clean.npz",
+        "bytes": 40825266,
+        "sha256": "f9954e4d17c0c738dc06979cefb18f70854e5f6742776fb1689ff7d7ca247019"
+      },
+      "files": {
+        "test_seen_clean.npz": {
+          "bytes": 4092662,
+          "sha256": "b7985e0165751dd654641d6e6e639d71f15fe59ecdb2f371f1316d0add1392a0"
+        },
+        "test_seen_metadata.jsonl": {
+          "bytes": 2014633,
+          "sha256": "14c3ed125339274fde1c500ee913e2cb80c1c5d6d10e3cd7b5aca39071fce309"
+        }
+      }
+    },
+    "test_unseen": {
+      "role": "test_unseen",
+      "source_sample_count": 13500,
+      "sample_count": 1350,
+      "combination_count": 27,
+      "samples_per_combination": 50,
+      "class_ids": [
+        13,
+        16,
+        21,
+        23,
+        26,
+        29,
+        31,
+        32,
+        37,
+        40,
+        42,
+        43,
+        44,
+        46,
+        48,
+        49,
+        50,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "multiplicity_counts": {
+        "2": 300,
+        "3": 600,
+        "4": 450
+      },
+      "positive_label_counts": {
+        "swell": 350,
+        "sag": 400,
+        "harmonic": 900,
+        "flicker": 900,
+        "interruption": 350,
+        "impulsive": 450,
+        "oscillatory": 400,
+        "notch": 450
+      },
+      "source_npz": {
+        "path": "split_02/test_unseen_clean.npz",
+        "bytes": 44220724,
+        "sha256": "57357d0609ef7b70e0b2cb7e1209f0bdac2cbc717d0afb7d5d261ddfc7f45e1e"
+      },
+      "files": {
+        "test_unseen_clean.npz": {
+          "bytes": 4421140,
+          "sha256": "32fd4227e0c8dfb0ebf78510d35f0728c6741fa08f3cf58f65826048379c99e8"
+        },
+        "test_unseen_metadata.jsonl": {
+          "bytes": 1561975,
+          "sha256": "cb6e83e8af1ab29d6faedcba329eb71169635f994777e6be4c783fd23728e37c"
+        }
+      }
+    }
+  },
+  "sample_count": 5050,
+  "source_sample_count": 50500
+}
