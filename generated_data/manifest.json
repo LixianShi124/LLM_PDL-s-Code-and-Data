@@ -1,0 +1,967 @@
+{
+  "schema_version": "pqd-stratified-subset-v1",
+  "source_dataset_schema": "pqd-revision-clean-v2",
+  "sampling": {
+    "method": "stratified_without_replacement",
+    "stratum": "class_id",
+    "fraction": 0.1,
+    "seed": 20261111,
+    "rng": "PCG64",
+    "seed_sequence": [
+      "seed",
+      "split_index",
+      "role_code",
+      "class_id"
+    ]
+  },
+  "source_counts_per_combination": {
+    "train": 400,
+    "validation": 100,
+    "test_seen": 500,
+    "test_unseen": 500
+  },
+  "counts_per_combination": {
+    "train": 40,
+    "validation": 10,
+    "test_seen": 50,
+    "test_unseen": 50
+  },
+  "split_count": 3,
+  "combination_count": 64,
+  "splits": [
+    {
+      "split_name": "split_01",
+      "waveform_seed": 20261024,
+      "combination_split_seed": 101,
+      "roles": {
+        "train": {
+          "role": "train",
+          "source_sample_count": 14800,
+          "sample_count": 1480,
+          "combination_count": 37,
+          "samples_per_combination": 40,
+          "class_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            11,
+            12,
+            13,
+            15,
+            17,
+            18,
+            19,
+            20,
+            21,
+            23,
+            24,
+            25,
+            26,
+            28,
+            30,
+            31,
+            32,
+            34,
+            37,
+            42,
+            43,
+            44,
+            45,
+            47,
+            48,
+            49,
+            50
+          ],
+          "multiplicity_counts": {
+            "0": 40,
+            "1": 320,
+            "2": 640,
+            "3": 480
+          },
+          "positive_label_counts": {
+            "swell": 360,
+            "sag": 280,
+            "harmonic": 560,
+            "flicker": 560,
+            "interruption": 320,
+            "impulsive": 320,
+            "oscillatory": 280,
+            "notch": 360
+          },
+          "source_npz": {
+            "path": "split_01/train_clean.npz",
+            "bytes": 32166892,
+            "sha256": "3f5690e9beee230840b4533e11bb28663f4fff1542010156a6fdaa70daf580d6"
+          },
+          "files": {
+            "train_clean.npz": {
+              "bytes": 3217234,
+              "sha256": "89488dcf1c8867557c94dcb84bd9413fd27713c7cc9538080a9f6fca1cbe706b"
+            },
+            "train_metadata.jsonl": {
+              "bytes": 1595645,
+              "sha256": "80e881714278c7d49ec8632188dc8ac30c44958e764c0dc24d993cfcdcf64618"
+            }
+          }
+        },
+        "validation": {
+          "role": "validation",
+          "source_sample_count": 3700,
+          "sample_count": 370,
+          "combination_count": 37,
+          "samples_per_combination": 10,
+          "class_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            11,
+            12,
+            13,
+            15,
+            17,
+            18,
+            19,
+            20,
+            21,
+            23,
+            24,
+            25,
+            26,
+            28,
+            30,
+            31,
+            32,
+            34,
+            37,
+            42,
+            43,
+            44,
+            45,
+            47,
+            48,
+            49,
+            50
+          ],
+          "multiplicity_counts": {
+            "0": 10,
+            "1": 80,
+            "2": 160,
+            "3": 120
+          },
+          "positive_label_counts": {
+            "swell": 90,
+            "sag": 70,
+            "harmonic": 140,
+            "flicker": 140,
+            "interruption": 80,
+            "impulsive": 80,
+            "oscillatory": 70,
+            "notch": 90
+          },
+          "source_npz": {
+            "path": "split_01/validation_clean.npz",
+            "bytes": 8055782,
+            "sha256": "98b70692d96ce857596401b9c0553df2d6e01e6ce0c404b9ddc9b9cf2fa1b074"
+          },
+          "files": {
+            "validation_clean.npz": {
+              "bytes": 805809,
+              "sha256": "c83731c30293b3951010a8047d3cd481633bb8771df5a3ab3367980b989dfcd6"
+            },
+            "validation_metadata.jsonl": {
+              "bytes": 401903,
+              "sha256": "0ea7aa5ef06d842b1398b25af2109f967b5069ee8e9d9eda00baeda3d33aa99f"
+            }
+          }
+        },
+        "test_seen": {
+          "role": "test_seen",
+          "source_sample_count": 18500,
+          "sample_count": 1850,
+          "combination_count": 37,
+          "samples_per_combination": 50,
+          "class_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            11,
+            12,
+            13,
+            15,
+            17,
+            18,
+            19,
+            20,
+            21,
+            23,
+            24,
+            25,
+            26,
+            28,
+            30,
+            31,
+            32,
+            34,
+            37,
+            42,
+            43,
+            44,
+            45,
+            47,
+            48,
+            49,
+            50
+          ],
+          "multiplicity_counts": {
+            "0": 50,
+            "1": 400,
+            "2": 800,
+            "3": 600
+          },
+          "positive_label_counts": {
+            "swell": 450,
+            "sag": 350,
+            "harmonic": 700,
+            "flicker": 700,
+            "interruption": 400,
+            "impulsive": 400,
+            "oscillatory": 350,
+            "notch": 450
+          },
+          "source_npz": {
+            "path": "split_01/test_seen_clean.npz",
+            "bytes": 40219474,
+            "sha256": "210df65c603a4e64e6f65c0a72624728b881b133ef68106ceee0662c092ebe19"
+          },
+          "files": {
+            "test_seen_clean.npz": {
+              "bytes": 4016995,
+              "sha256": "facbdbd7bb813374f0948b2e4f793208737f131b00980bd7e1a8b957a488f507"
+            },
+            "test_seen_metadata.jsonl": {
+              "bytes": 2009939,
+              "sha256": "fe798d85fa8b8e8b97acc53efdfb9d6ca8117c256a368c2297e24814e951be5c"
+            }
+          }
+        },
+        "test_unseen": {
+          "role": "test_unseen",
+          "source_sample_count": 13500,
+          "sample_count": 1350,
+          "combination_count": 27,
+          "samples_per_combination": 50,
+          "class_ids": [
+            10,
+            14,
+            16,
+            22,
+            27,
+            29,
+            33,
+            35,
+            36,
+            38,
+            39,
+            40,
+            41,
+            46,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "multiplicity_counts": {
+            "2": 300,
+            "3": 600,
+            "4": 450
+          },
+          "positive_label_counts": {
+            "swell": 350,
+            "sag": 450,
+            "harmonic": 900,
+            "flicker": 900,
+            "interruption": 400,
+            "impulsive": 400,
+            "oscillatory": 450,
+            "notch": 350
+          },
+          "source_npz": {
+            "path": "split_01/test_unseen_clean.npz",
+            "bytes": 44837062,
+            "sha256": "6671d1c1f7b6f06021c30c748f7b9b624a1695a5ce549d743395793e7c08483e"
+          },
+          "files": {
+            "test_unseen_clean.npz": {
+              "bytes": 4485898,
+              "sha256": "fcf6a53b90c1e7958f2ee534abf18fc763fbb9ef71aa993b6a93a49687c68d82"
+            },
+            "test_unseen_metadata.jsonl": {
+              "bytes": 1566854,
+              "sha256": "efffb3a86c27d5efe5cb5567040417b1d06013d83546017e1d3f082400435a0e"
+            }
+          }
+        }
+      },
+      "sample_count": 5050,
+      "source_sample_count": 50500
+    },
+    {
+      "split_name": "split_02",
+      "waveform_seed": 20261025,
+      "combination_split_seed": 102,
+      "roles": {
+        "train": {
+          "role": "train",
+          "source_sample_count": 14800,
+          "sample_count": 1480,
+          "combination_count": 37,
+          "samples_per_combination": 40,
+          "class_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            14,
+            15,
+            17,
+            18,
+            19,
+            20,
+            22,
+            24,
+            25,
+            27,
+            28,
+            30,
+            33,
+            34,
+            35,
+            36,
+            38,
+            39,
+            41,
+            45,
+            47,
+            51,
+            52,
+            53
+          ],
+          "multiplicity_counts": {
+            "0": 40,
+            "1": 320,
+            "2": 640,
+            "3": 480
+          },
+          "positive_label_counts": {
+            "swell": 360,
+            "sag": 320,
+            "harmonic": 560,
+            "flicker": 560,
+            "interruption": 360,
+            "impulsive": 280,
+            "oscillatory": 320,
+            "notch": 280
+          },
+          "source_npz": {
+            "path": "split_02/train_clean.npz",
+            "bytes": 32661836,
+            "sha256": "59399b92f8490a9382f7eba2a7f512ceb2e4f7f100e19de29ff8cc6c6b8c940c"
+          },
+          "files": {
+            "train_clean.npz": {
+              "bytes": 3274781,
+              "sha256": "cd5f7d9289386626c2c43db4c66ec6d3f2c6b748d108c070a7cf134ba3aef4b8"
+            },
+            "train_metadata.jsonl": {
+              "bytes": 1599445,
+              "sha256": "e761a1025f114f6abf8e4a6a019b309d9b1ad1dbd1604703a72eeba17a07338f"
+            }
+          }
+        },
+        "validation": {
+          "role": "validation",
+          "source_sample_count": 3700,
+          "sample_count": 370,
+          "combination_count": 37,
+          "samples_per_combination": 10,
+          "class_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            14,
+            15,
+            17,
+            18,
+            19,
+            20,
+            22,
+            24,
+            25,
+            27,
+            28,
+            30,
+            33,
+            34,
+            35,
+            36,
+            38,
+            39,
+            41,
+            45,
+            47,
+            51,
+            52,
+            53
+          ],
+          "multiplicity_counts": {
+            "0": 10,
+            "1": 80,
+            "2": 160,
+            "3": 120
+          },
+          "positive_label_counts": {
+            "swell": 90,
+            "sag": 80,
+            "harmonic": 140,
+            "flicker": 140,
+            "interruption": 90,
+            "impulsive": 70,
+            "oscillatory": 80,
+            "notch": 70
+          },
+          "source_npz": {
+            "path": "split_02/validation_clean.npz",
+            "bytes": 8166090,
+            "sha256": "bba83e293f6ce4deb84c4fa9144ab1d20d5e3189460bc1e43f95fbb966da840e"
+          },
+          "files": {
+            "validation_clean.npz": {
+              "bytes": 818730,
+              "sha256": "824afc72e8693da415a0632b18429980932bf23ba192fcfa531d63a27b2ba555"
+            },
+            "validation_metadata.jsonl": {
+              "bytes": 402856,
+              "sha256": "9a9eed0c147f9b85c5ad7cca63f6570d54592f523b4acff005e70382b2ccf2d2"
+            }
+          }
+        },
+        "test_seen": {
+          "role": "test_seen",
+          "source_sample_count": 18500,
+          "sample_count": 1850,
+          "combination_count": 37,
+          "samples_per_combination": 50,
+          "class_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            14,
+            15,
+            17,
+            18,
+            19,
+            20,
+            22,
+            24,
+            25,
+            27,
+            28,
+            30,
+            33,
+            34,
+            35,
+            36,
+            38,
+            39,
+            41,
+            45,
+            47,
+            51,
+            52,
+            53
+          ],
+          "multiplicity_counts": {
+            "0": 50,
+            "1": 400,
+            "2": 800,
+            "3": 600
+          },
+          "positive_label_counts": {
+            "swell": 450,
+            "sag": 400,
+            "harmonic": 700,
+            "flicker": 700,
+            "interruption": 450,
+            "impulsive": 350,
+            "oscillatory": 400,
+            "notch": 350
+          },
+          "source_npz": {
+            "path": "split_02/test_seen_clean.npz",
+            "bytes": 40825266,
+            "sha256": "f9954e4d17c0c738dc06979cefb18f70854e5f6742776fb1689ff7d7ca247019"
+          },
+          "files": {
+            "test_seen_clean.npz": {
+              "bytes": 4092662,
+              "sha256": "b7985e0165751dd654641d6e6e639d71f15fe59ecdb2f371f1316d0add1392a0"
+            },
+            "test_seen_metadata.jsonl": {
+              "bytes": 2014633,
+              "sha256": "14c3ed125339274fde1c500ee913e2cb80c1c5d6d10e3cd7b5aca39071fce309"
+            }
+          }
+        },
+        "test_unseen": {
+          "role": "test_unseen",
+          "source_sample_count": 13500,
+          "sample_count": 1350,
+          "combination_count": 27,
+          "samples_per_combination": 50,
+          "class_ids": [
+            13,
+            16,
+            21,
+            23,
+            26,
+            29,
+            31,
+            32,
+            37,
+            40,
+            42,
+            43,
+            44,
+            46,
+            48,
+            49,
+            50,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "multiplicity_counts": {
+            "2": 300,
+            "3": 600,
+            "4": 450
+          },
+          "positive_label_counts": {
+            "swell": 350,
+            "sag": 400,
+            "harmonic": 900,
+            "flicker": 900,
+            "interruption": 350,
+            "impulsive": 450,
+            "oscillatory": 400,
+            "notch": 450
+          },
+          "source_npz": {
+            "path": "split_02/test_unseen_clean.npz",
+            "bytes": 44220724,
+            "sha256": "57357d0609ef7b70e0b2cb7e1209f0bdac2cbc717d0afb7d5d261ddfc7f45e1e"
+          },
+          "files": {
+            "test_unseen_clean.npz": {
+              "bytes": 4421140,
+              "sha256": "32fd4227e0c8dfb0ebf78510d35f0728c6741fa08f3cf58f65826048379c99e8"
+            },
+            "test_unseen_metadata.jsonl": {
+              "bytes": 1561975,
+              "sha256": "cb6e83e8af1ab29d6faedcba329eb71169635f994777e6be4c783fd23728e37c"
+            }
+          }
+        }
+      },
+      "sample_count": 5050,
+      "source_sample_count": 50500
+    },
+    {
+      "split_name": "split_03",
+      "waveform_seed": 20261026,
+      "combination_split_seed": 103,
+      "roles": {
+        "train": {
+          "role": "train",
+          "source_sample_count": 14800,
+          "sample_count": 1480,
+          "combination_count": 37,
+          "samples_per_combination": 40,
+          "class_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            14,
+            15,
+            16,
+            18,
+            21,
+            22,
+            23,
+            24,
+            26,
+            27,
+            28,
+            30,
+            31,
+            33,
+            34,
+            38,
+            42,
+            44,
+            46,
+            47,
+            49,
+            50,
+            52,
+            54
+          ],
+          "multiplicity_counts": {
+            "0": 40,
+            "1": 320,
+            "2": 640,
+            "3": 480
+          },
+          "positive_label_counts": {
+            "swell": 320,
+            "sag": 320,
+            "harmonic": 560,
+            "flicker": 560,
+            "interruption": 320,
+            "impulsive": 360,
+            "oscillatory": 280,
+            "notch": 320
+          },
+          "source_npz": {
+            "path": "split_03/train_clean.npz",
+            "bytes": 32390388,
+            "sha256": "64fe4ec210bde36c610dd7567423d6f3671f70cc75e0c220cd7a0e1c6b0c13d8"
+          },
+          "files": {
+            "train_clean.npz": {
+              "bytes": 3241040,
+              "sha256": "c50f8560009d50113dd905f7cd258b6d7e70631294251b3873a4f47ddd08dafe"
+            },
+            "train_metadata.jsonl": {
+              "bytes": 1595688,
+              "sha256": "e09953cdd4652675c85cb489212b689b7a9532f09313413b51abbbe36492264b"
+            }
+          }
+        },
+        "validation": {
+          "role": "validation",
+          "source_sample_count": 3700,
+          "sample_count": 370,
+          "combination_count": 37,
+          "samples_per_combination": 10,
+          "class_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            14,
+            15,
+            16,
+            18,
+            21,
+            22,
+            23,
+            24,
+            26,
+            27,
+            28,
+            30,
+            31,
+            33,
+            34,
+            38,
+            42,
+            44,
+            46,
+            47,
+            49,
+            50,
+            52,
+            54
+          ],
+          "multiplicity_counts": {
+            "0": 10,
+            "1": 80,
+            "2": 160,
+            "3": 120
+          },
+          "positive_label_counts": {
+            "swell": 80,
+            "sag": 80,
+            "harmonic": 140,
+            "flicker": 140,
+            "interruption": 80,
+            "impulsive": 90,
+            "oscillatory": 70,
+            "notch": 80
+          },
+          "source_npz": {
+            "path": "split_03/validation_clean.npz",
+            "bytes": 8101470,
+            "sha256": "85c40789100e67689bda6409a06f5e64a62852c18b8714452486e19a01b81a27"
+          },
+          "files": {
+            "validation_clean.npz": {
+              "bytes": 806587,
+              "sha256": "61f6c363f275a3e36e75b07880608bef79678e6261a5fc865b149dd82562fd87"
+            },
+            "validation_metadata.jsonl": {
+              "bytes": 401887,
+              "sha256": "1d9bac53ad81d9f259e257688b94c9a3e915c36a5d51aac2e6462f2eefe2cd1a"
+            }
+          }
+        },
+        "test_seen": {
+          "role": "test_seen",
+          "source_sample_count": 18500,
+          "sample_count": 1850,
+          "combination_count": 37,
+          "samples_per_combination": 50,
+          "class_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            14,
+            15,
+            16,
+            18,
+            21,
+            22,
+            23,
+            24,
+            26,
+            27,
+            28,
+            30,
+            31,
+            33,
+            34,
+            38,
+            42,
+            44,
+            46,
+            47,
+            49,
+            50,
+            52,
+            54
+          ],
+          "multiplicity_counts": {
+            "0": 50,
+            "1": 400,
+            "2": 800,
+            "3": 600
+          },
+          "positive_label_counts": {
+            "swell": 400,
+            "sag": 400,
+            "harmonic": 700,
+            "flicker": 700,
+            "interruption": 400,
+            "impulsive": 450,
+            "oscillatory": 350,
+            "notch": 400
+          },
+          "source_npz": {
+            "path": "split_03/test_seen_clean.npz",
+            "bytes": 40492025,
+            "sha256": "faf4841f55924eda4e9ac614d4a71ec8d1ba486aaeceaca065d65bc73e875f69"
+          },
+          "files": {
+            "test_seen_clean.npz": {
+              "bytes": 4051596,
+              "sha256": "7133b3d9a3aa36ff493dca79ab80d09880a5ff8ebd5a477935b85d3664145e5c"
+            },
+            "test_seen_metadata.jsonl": {
+              "bytes": 2010109,
+              "sha256": "3e74d4ca7a0121c8f8cba5b66ffeacf5407f788e6524eb3b0c1efb5627533571"
+            }
+          }
+        },
+        "test_unseen": {
+          "role": "test_unseen",
+          "source_sample_count": 13500,
+          "sample_count": 1350,
+          "combination_count": 27,
+          "samples_per_combination": 50,
+          "class_ids": [
+            13,
+            17,
+            19,
+            20,
+            25,
+            29,
+            32,
+            35,
+            36,
+            37,
+            39,
+            40,
+            41,
+            43,
+            45,
+            48,
+            51,
+            53,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "multiplicity_counts": {
+            "2": 300,
+            "3": 600,
+            "4": 450
+          },
+          "positive_label_counts": {
+            "swell": 400,
+            "sag": 400,
+            "harmonic": 900,
+            "flicker": 900,
+            "interruption": 400,
+            "impulsive": 350,
+            "oscillatory": 450,
+            "notch": 400
+          },
+          "source_npz": {
+            "path": "split_03/test_unseen_clean.npz",
+            "bytes": 44594771,
+            "sha256": "9d43eeebe767db327feff42a7cb6f1d9a751eec14575b5b54167b8d522380ab2"
+          },
+          "files": {
+            "test_unseen_clean.npz": {
+              "bytes": 4462621,
+              "sha256": "a4f47dc515d474084ca597ed0737c2961ad1438b05ad175638181c3fbdf80916"
+            },
+            "test_unseen_metadata.jsonl": {
+              "bytes": 1566731,
+              "sha256": "e9b4a623f8eafa446a8075b47dd08c3b6d20f9dee5d31d83a7b00f19a4f91c97"
+            }
+          }
+        }
+      },
+      "sample_count": 5050,
+      "source_sample_count": 50500
+    }
+  ],
+  "source_sample_count": 151500,
+  "total_samples": 15150,
+  "supporting_files": {
+    "protocol.json": {
+      "bytes": 4616,
+      "sha256": "cabaed4fe39f061be95ffcc2d07e3d230b544e66e41340a6b6befa7868c736b2"
+    },
+    "class_catalog.csv": {
+      "bytes": 5701,
+      "sha256": "b25a79e3a9da61d3d64c55eda84bf576d23f57dd6381494708c25a01ce201f1d"
+    },
+    "generation_parameters.csv": {
+      "bytes": 1308,
+      "sha256": "2fb7ade5a2dff80ea65ce8b0bc67b56f0a5bd30169e7aa9845619d8dc95aaa19"
+    }
+  }
+}

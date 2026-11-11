@@ -1,0 +1,204 @@
+{
+  "schema_version": "pqd-revision-clean-v2",
+  "protocol_date": "2026-10-25",
+  "sampling_hz": 6000,
+  "fundamental_hz": 50,
+  "duration_s": 0.2,
+  "samples_per_record": 1200,
+  "nominal_peak_pu": 1.0,
+  "noise_model": "none",
+  "snr_db": null,
+  "label_order": [
+    "swell",
+    "sag",
+    "harmonic",
+    "flicker",
+    "interruption",
+    "impulsive",
+    "oscillatory",
+    "notch"
+  ],
+  "branch_label_order": [
+    "amplitude",
+    "harmonic",
+    "flicker",
+    "transient"
+  ],
+  "branch_states": {
+    "amplitude": [
+      "none",
+      "swell",
+      "sag",
+      "interruption"
+    ],
+    "harmonic": [
+      "none",
+      "harmonic"
+    ],
+    "flicker": [
+      "none",
+      "flicker"
+    ],
+    "transient": [
+      "none",
+      "impulsive",
+      "oscillatory",
+      "notch"
+    ]
+  },
+  "waveform_seeds": [
+    20261024,
+    20261025,
+    20261026
+  ],
+  "combination_split_seeds": [
+    101,
+    102,
+    103
+  ],
+  "future_training_seeds": [
+    42,
+    43,
+    44
+  ],
+  "counts_per_combination": {
+    "train": 40,
+    "validation": 10,
+    "test_seen": 50,
+    "test_unseen": 50
+  },
+  "seen_combination_counts_by_multiplicity": {
+    "0": 1,
+    "1": 8,
+    "2": 16,
+    "3": 12,
+    "4": 0
+  },
+  "unseen_combination_counts_by_multiplicity": {
+    "0": 0,
+    "1": 0,
+    "2": 6,
+    "3": 12,
+    "4": 9
+  },
+  "rng": "NumPy Generator(PCG64), SeedSequence([waveform_seed, role_code, class_id, sample_index, retry])",
+  "split_rule": "Within multiplicity 2/3, select 6/12 unseen combinations with each label's held-out count between floor and ceil of its proportional expectation; first valid seeded draw. All single types seen, all quadruples unseen.",
+  "ranges": {
+    "carrier_phase_rad": [
+      0.0,
+      6.283185307179586
+    ],
+    "event_start_s": [
+      0.04,
+      0.1
+    ],
+    "amp_duration_s": [
+      0.02,
+      0.18
+    ],
+    "swell_increment_pu": [
+      0.1,
+      0.8
+    ],
+    "sag_reduction_pu": [
+      0.1,
+      0.9
+    ],
+    "interruption_reduction_pu": [
+      0.9,
+      1.0
+    ],
+    "harmonic_3_pu": [
+      0.05,
+      0.15
+    ],
+    "harmonic_5_pu": [
+      0.05,
+      0.15
+    ],
+    "harmonic_7_pu": [
+      0.05,
+      0.15
+    ],
+    "flicker_depth_pu": [
+      0.1,
+      0.2
+    ],
+    "flicker_frequency_hz": [
+      5.0,
+      20.0
+    ],
+    "flicker_phase_rad": [
+      0.0,
+      6.283185307179586
+    ],
+    "impulse_duration_s": [
+      0.001,
+      0.003
+    ],
+    "impulse_gain_pu": [
+      1.0,
+      10.0
+    ],
+    "osc_duration_s": [
+      0.01,
+      0.06
+    ],
+    "osc_amplitude_pu": [
+      0.1,
+      0.8
+    ],
+    "osc_frequency_hz": [
+      300.0,
+      900.0
+    ],
+    "osc_decay_per_s": [
+      25.0,
+      125.0
+    ],
+    "notch_width_s": [
+      0.0002,
+      0.001
+    ],
+    "notch_depth_pu": [
+      0.1,
+      0.4
+    ]
+  },
+  "distribution": "All listed ranges sampled independently and continuously, uniformly on [lower, upper); harmonic phases are h times the carrier phase; one active state per amplitude/transient branch.",
+  "event_interval": "start < t <= end; events are clipped to the observation window",
+  "amplitude_flicker_rule": "Fundamental gain is (1+amplitude_gate)*(1+flicker_modulation); flicker is relative to the remaining fundamental voltage. Add carrier-proportional impulse gain separately. This gain is nonnegative for the configured ranges.",
+  "notch_rule": "Pulses start at notch_base_start_s + n/50, n=1,...,9. During a pulse replace the complete pre-notch waveform z by sign(z)*max(abs(z)-notch_depth_pu,0). The requested depth is bounded by abs(z), so notches cannot reverse polarity or increase absolute voltage.",
+  "composition_equation": "z=((1+amplitude_gate)*(1+flicker_modulation)+impulse_gate)*sin(2*pi*50*t+phase)+harmonics+damped_oscillation; x=z-sign(z)*min(notch_depth_pu,abs(z))*notch_gates",
+  "evaluation_policy": {
+    "training": [
+      "train"
+    ],
+    "selection": [
+      "validation"
+    ],
+    "evaluation": [
+      "test_seen",
+      "test_unseen"
+    ]
+  },
+  "source_counts_per_combination": {
+    "train": 400,
+    "validation": 100,
+    "test_seen": 500,
+    "test_unseen": 500
+  },
+  "sampling": {
+    "method": "stratified_without_replacement",
+    "stratum": "class_id",
+    "fraction": 0.1,
+    "seed": 20261111,
+    "rng": "PCG64",
+    "seed_sequence": [
+      "seed",
+      "split_index",
+      "role_code",
+      "class_id"
+    ]
+  }
+}
