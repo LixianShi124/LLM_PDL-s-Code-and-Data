@@ -32,8 +32,8 @@ def validate_config(config):
     if config['transient_preprocessing'] != 'fundamental_first':
         raise ValueError('transient_preprocessing must be fundamental_first')
     for b in branches:
-        if config['budgets'][b] != dict(max_params=50000, deploy_params=50000, max_flops=50000000, deploy_flops=50000000):
-            raise ValueError('Per-branch budgets must be 50000 parameters and 50000000 FLOPs')
+        if config['budgets'][b] != dict(max_params=100000, deploy_params=100000, max_flops=50000000, deploy_flops=50000000):
+            raise ValueError('Per-branch budgets must be 100000 parameters and 50000000 FLOPs')
     requested = len(branches) * config['generations'] * config['population']
     if requested > config['max_api_calls']:
         raise ValueError('Planned proposal slots exceed max_api_calls; reduce the schedule or increase the limit explicitly')
