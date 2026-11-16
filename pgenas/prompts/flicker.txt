@@ -10,7 +10,7 @@ Target classes:
 1: Flicker disturbance
 
 Hard constraints:
-- Total trainable parameters must not exceed 50,000.
+- Total trainable parameters must not exceed 100,000.
 - Network FLOPs for one input sample must not exceed 50 million.
 - Resource constraints will be enforced externally.
 
